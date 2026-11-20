@@ -58,7 +58,7 @@ cd lab-final-1
 ./run.sh
 ```
 
-`run.sh` age purono `out`/`target` delete kore, **`target/classes`**-e fresh compile kore (IDE-ir jei folder), tarpor server + client duto-i chalay, output dekhai, ar server-e bondo kore diye.
+`run.sh` kono `out`/`target` folder banay na — Java 17 `.java` file gulo direct run kore. Server + client duto-i chalay, output dekhai, ar server-e bondo kore diye. Tai fresh code-i cholche, kono cache nei.
 
 ## Or two terminals
 
@@ -70,27 +70,26 @@ cd lab-final-1
 ./run-client.sh
 ```
 
-Duto script-i age `rm -rf out target` kore fresh compile kore. Server age chalano lagbe.
+Duto script-i `.java` file direct run kore — kono build folder lagbe na. Server age chalano lagbe.
 
 ## IDE (IntelliJ) run korle
 
-IDE `target/classes` theke chalay. Tai age compile korte hobe:
+IDE-r Run button `-cp .../target/classes` use kore. Tai IDE button chapar age ekbar:
 
 ```bash
-./run.sh          # ekbar chalalei target/classes-e class gulo thakbe
+./build.sh
 ```
 
-Tarpor IDE-r Run button chaple `labfinal1.Server` pabe. Class na thakle
-`Could not find or load main class labfinal1.Server` error ase.
+Eta `target/classes`-e `Server.class` + `Client.class` banaye diye. Tarpor IDE-r
+Run button chaple cholbe. Code change korechho tahole abar `./build.sh` chalao.
 
-`pom.xml`-e compiler + exec plugin add kora ase, tai `mvn compile` ba
-`mvn exec:java` korle-o kobej korbe.
+Terminal-e cholabar jonno `./run.sh` — eta `target` lagbe na, `.java` direct run kore.
 
 ## Not working hole
 
 ```bash
 pkill -f 'java.*labfinal1.Server'   # old server thakle bondo koro
-./run.sh                            # fresh compile + run
+./run.sh                            # fresh code + run
 ```
 
 The client sends `Lutfat Rahman` and `0272320005101051`; the server prints both and replies with them. Both programs then close.
